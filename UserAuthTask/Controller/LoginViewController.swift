@@ -9,12 +9,18 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var submitButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func submitBtnPressed(_ sender: Any) {
+    }
+    
 }
 extension UITextField {
     @IBInspectable var placeholderColor: UIColor {
