@@ -58,9 +58,7 @@ class Networking {
                     completion(.failure(NetworkingError.badResponse))
                     return
                 }
-                
-                print(unwrappedResponse.statusCode)
-                
+                //  print(unwrappedResponse.statusCode)
                 switch unwrappedResponse.statusCode {
                     
                 case 200 ..< 300:

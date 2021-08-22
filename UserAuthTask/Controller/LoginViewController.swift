@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
         let defaults = UserDefaults.standard
         defaults.setValue(tokens.token, forKey: "jsonwebtoken")
         defaults.setValue(tokens.refreshToken, forKey: "refreshtoken")
-      //  performSegue(withIdentifier: "loginSegue", sender: tokens)
+        performSegue(withIdentifier: "loginSegue", sender: tokens)
       
         
     }
