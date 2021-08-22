@@ -20,10 +20,34 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-    @IBAction func submitBtnPressed(_ sender: Any) {
-    }
     
+    @IBAction func submitBtnPressed(_ sender: Any) {
+        guard let username = username.text, let password = password.text else {return}
+        
+        loginRequest(username: username, password: password)
+        }
+    
+    func loginRequest(username: String, password: String) {
+        let parameters = ["username": username,
+                          "password": password]
+        networking.requestToken(endpoint: "/credentials", parameters: parameters) { [weak self] (result) in
+            switch result {
+
+            case .success(let tokens): print("we are here\(tokens)")
+                // succesfullResponse()
+            case.failure(let error):
+
+                guard let alert = self?.alertService.alert(message: error.localizedDescription) else { return }
+                self?.present(alert, animated: true)
+            }
+        }
+    }
+    func succesfullResponse(){
+      // save tokens to user defaults
+      //  performSegue(withIdentifier: "loginSegue", sender: tokens)
+      
+        
+    }
 }
 extension UITextField {
     @IBInspectable var placeholderColor: UIColor {
