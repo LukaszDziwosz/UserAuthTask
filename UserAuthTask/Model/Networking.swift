@@ -4,15 +4,12 @@
 //
 //  Created by Lukasz Dziwosz on 22/08/2021.
 //
-protocol UserDataDelegate {
-    func didGetData (_ userData: User)
-}
+
 import Foundation
 
 
 class Networking {
     
-    var delegate: UserDataDelegate?
     
     let baseUrl = "https://vidqjclbhmef.herokuapp.com"
     
@@ -26,21 +23,14 @@ class Networking {
         }
         
         var request = URLRequest(url: url)
-        
         var components = URLComponents()
-        
         var queryItems = [URLQueryItem]()
-        
         for (key, value) in parameters {
-            
             let queryItem = URLQueryItem(name: key, value: String(describing: value))
             queryItems.append(queryItem)
         }
-        
         components.queryItems = queryItems
-        
-        // username = john.doe@nfq.lt & password = johndoe
-        
+        // username=john.doe@nfq.lt&password=johndoe
         let queryItemData = components.query?.data(using: .utf8)
         
         request.httpBody = queryItemData
@@ -149,7 +139,7 @@ class Networking {
                         
                         if let userData = try? JSONDecoder().decode(User.self, from: unwrappedData) {
                             completion(.success(userData))
-                            self.delegate?.didGetData(userData)
+                            
                         } else {
                             let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: unwrappedData)
                             completion(.failure(errorResponse))

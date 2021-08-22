@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserViewController: UIViewController , UserDataDelegate {
+class UserViewController: UIViewController { //, UserDataDelegate {
     
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var fullNameLbl: UILabel!
@@ -21,7 +21,7 @@ class UserViewController: UIViewController , UserDataDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networking.delegate = self
+       // networking.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,7 +45,7 @@ class UserViewController: UIViewController , UserDataDelegate {
         networking.requestUser(endpoint: "/user", token: token) { [weak self] (result) in
             switch result {
 
-            case .success(let userData): print("\(userData)")
+            case .success(let userData): self!.didGetData(userData)
             case.failure(let error):
                 print(error.localizedDescription)
                 guard let alert = self?.alertService.alert(message: "Cannot get user data") else { return }
@@ -54,18 +54,15 @@ class UserViewController: UIViewController , UserDataDelegate {
         }
     }
     func didGetData(_ userData: User) {
-        DispatchQueue.main.async {
-            self.fullNameLbl.text = "\(userData.firstName) \(userData.lastName)"
-            self.addressLbl.text = userData.address
-            self.telephoneLbl.text = userData.phone
-            }
             if let url = URL(string: userData.image) {
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else { return }
                 
                 DispatchQueue.main.async {
                     self.userImageView.image = UIImage(data: data)
-                }
+                    self.fullNameLbl.text = "\(userData.firstName) \(userData.lastName)"
+                    self.addressLbl.text = userData.address
+                    self.telephoneLbl.text = userData.phone                }
             }
             
             task.resume()
