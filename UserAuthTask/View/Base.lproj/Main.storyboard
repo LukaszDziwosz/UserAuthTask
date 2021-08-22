@@ -23,7 +23,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tech" translatesAutoresizingMaskIntoConstraints="NO" id="JXz-aw-5GK">
                                         <rect key="frame" x="91" y="0.0" width="80" height="80"/>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q72-Vx-NKp">
+                                    <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q72-Vx-NKp" customClass="HSUnderLineTextField" customModule="UserAuthTask" customModuleProvider="target">
                                         <rect key="frame" x="70" y="110" width="122" height="35"/>
                                         <color key="backgroundColor" red="0.2132007182" green="0.27645078299999998" blue="0.38026231529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -41,7 +41,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J7p-Az-r5H">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J7p-Az-r5H" customClass="HSUnderLineTextField" customModule="UserAuthTask" customModuleProvider="target">
                                         <rect key="frame" x="73" y="175" width="116" height="35"/>
                                         <color key="backgroundColor" red="0.2132007182" green="0.27645078299999998" blue="0.38026231529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>

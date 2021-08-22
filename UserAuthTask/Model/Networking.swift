@@ -43,9 +43,9 @@ class Networking {
         request.httpMethod = "POST"
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         
-        handleResponse(for: request, completion: completion)
+        handleTokenResponse(for: request, completion: completion)
     }
-    func handleResponse(for request: URLRequest,
+    func handleTokenResponse(for request: URLRequest,
                         completion: @escaping (Result<Tokens, Error>) -> Void) {
         
         let session = URLSession.shared
@@ -69,9 +69,10 @@ class Networking {
                 default:
                     print("failure")
                 }
-                
+               
                 if let unwrappedError = error {
                     completion(.failure(unwrappedError))
+                  
                     return
                 }
                 
@@ -87,6 +88,7 @@ class Networking {
                         } else {
                             let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: unwrappedData)
                             completion(.failure(errorResponse))
+                            
                         }
                         
                     } catch {

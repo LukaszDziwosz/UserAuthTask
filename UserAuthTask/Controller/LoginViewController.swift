@@ -33,17 +33,18 @@ class LoginViewController: UIViewController {
         networking.requestToken(endpoint: "/credentials", parameters: parameters) { [weak self] (result) in
             switch result {
 
-            case .success(let tokens): print("we are here\(tokens)")
-                // succesfullResponse()
+            case .success(let tokens): self?.succesfullResponse(tokens: tokens)
             case.failure(let error):
-
-                guard let alert = self?.alertService.alert(message: error.localizedDescription) else { return }
+                print(error.localizedDescription)
+                guard let alert = self?.alertService.alert(message: "Please input correct credentials") else { return }
                 self?.present(alert, animated: true)
             }
         }
     }
-    func succesfullResponse(){
-      // save tokens to user defaults
+    func succesfullResponse(tokens: Tokens){
+        let defaults = UserDefaults.standard
+        defaults.setValue(tokens.token, forKey: "jsonwebtoken")
+        defaults.setValue(tokens.refreshToken, forKey: "refreshtoken")
       //  performSegue(withIdentifier: "loginSegue", sender: tokens)
       
         
