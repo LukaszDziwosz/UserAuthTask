@@ -13,6 +13,7 @@ class UserViewController: UIViewController , UserDataDelegate {
     @IBOutlet weak var fullNameLbl: UILabel!
     @IBOutlet weak var addressLbl: UILabel!
     @IBOutlet weak var telephoneLbl: UILabel!
+    @IBOutlet weak var logoutBtnOutlet: UIBarButtonItem!
     
     let networking = Networking()
     let alertService = AlertService()
@@ -32,6 +33,7 @@ class UserViewController: UIViewController , UserDataDelegate {
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: "jsonwebtoken")
         defaults.removeObject(forKey: "refreshtoken")
+        performSegue(withIdentifier: "goBackToLogin", sender: (Any).self)
     }
     
     func getUserInfo() {
@@ -56,10 +58,20 @@ class UserViewController: UIViewController , UserDataDelegate {
             self.fullNameLbl.text = "\(userData.firstName) \(userData.lastName)"
             self.addressLbl.text = userData.address
             self.telephoneLbl.text = userData.phone
+            }
+            if let url = URL(string: userData.image) {
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else { return }
+                
+                DispatchQueue.main.async {
+                    self.userImageView.image = UIImage(data: data)
+                }
+            }
             
-            
+            task.resume()
         }
         
     }
     
 }
+
