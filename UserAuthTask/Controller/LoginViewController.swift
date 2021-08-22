@@ -13,6 +13,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     
+    let alertService = AlertService()
+    let networking = Networking()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
