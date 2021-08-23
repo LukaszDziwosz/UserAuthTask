@@ -43,33 +43,22 @@ class Networking {
                         completion: @escaping (Result<Tokens, Error>) -> Void) {
         
         let session = URLSession.shared
-        
         let task = session.dataTask(with: request) { (data, response, error) in
-            
-            DispatchQueue.main.async {
-                
+        DispatchQueue.main.async {
                 guard let unwrappedResponse = response as? HTTPURLResponse else {
                     completion(.failure(NetworkingError.badResponse))
-                    return
-                }
+                    return }
                 //  print(unwrappedResponse.statusCode)
                 switch unwrappedResponse.statusCode {
-                    
-                case 200 ..< 300:
+                    case 200 ..< 300:
                     print("success")
-                    
-                default:
+                    default:
                     print("failure")
                 }
-               
-                if let unwrappedError = error {
+               if let unwrappedError = error {
                     completion(.failure(unwrappedError))
-                  
-                    return
-                }
-                
-                if let unwrappedData = data {
-                    
+                  return }
+               if let unwrappedData = data {
                     do {
                         let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
                         print(json)
@@ -79,60 +68,46 @@ class Networking {
                             
                         } else {
                             let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: unwrappedData)
-                            completion(.failure(errorResponse))
-                            
-                        }
-                        
-                    } catch {
+                            completion(.failure(errorResponse)) }
+            
+                      } catch {
                         completion(.failure(error))
                     }
                 }
-            }
+            } // dispatch bracket
         }
-        
         task.resume()
     }
+    
     func requestUser(endpoint: String, token: String, completion: @escaping (Result<User, Error>) -> Void) {
         guard let url = URL(string: baseUrl + endpoint) else {
             completion(.failure(NetworkingError.badUrl))
-            return
-        }
-        var request = URLRequest(url: url)
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        request.httpMethod = "GET"
+            return }
+         var request = URLRequest(url: url)
+             request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+             request.httpMethod = "GET"
         handleUserResponse(for: request, completion: completion)
     }
     func handleUserResponse(for request: URLRequest,
                         completion: @escaping (Result<User, Error>) -> Void) {
         
         let session = URLSession.shared
-        
         let task = session.dataTask(with: request) { (data, response, error) in
-            
-            DispatchQueue.main.async {
-                
+
                 guard let unwrappedResponse = response as? HTTPURLResponse else {
                     completion(.failure(NetworkingError.badResponse))
                     return
                 }
-                 print(unwrappedResponse.statusCode)
                 switch unwrappedResponse.statusCode {
-                    
-                case 200 ..< 300:
+                    case 200 ..< 300:
                     print("success")
-                    
                 default:
-                    print("failure")// send refresh token here
+                    print("failure")// we could send refresh token here to remain logged in
                 }
-               
-                if let unwrappedError = error {
+               if let unwrappedError = error {
                     completion(.failure(unwrappedError))
-                  
-                    return
-                }
-                
-                if let unwrappedData = data {
-                    
+                  return }
+               if let unwrappedData = data {
                     do {
                         let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
                         print(json)
@@ -143,16 +118,12 @@ class Networking {
                         } else {
                             let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: unwrappedData)
                             completion(.failure(errorResponse))
-                            
-                        }
-                        
+                            }
                     } catch {
                         completion(.failure(error))
                     }
                 }
-            }
         }
-        
         task.resume()
     }
 
@@ -160,5 +131,4 @@ class Networking {
 enum NetworkingError: Error {
     case badUrl
     case badResponse
-    case badEncoding
 }

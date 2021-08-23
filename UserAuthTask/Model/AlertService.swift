@@ -9,11 +9,11 @@ import UIKit
 
 class AlertService {
     
-    func alert(message: String) -> UIAlertController {
+    func alert(message: String, handler: @escaping (UIAlertAction) -> Void) -> UIAlertController {
         
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+        let action = UIAlertAction(title: "Dismiss", style: .cancel, handler: handler)
         
         alert.addAction(action)
         

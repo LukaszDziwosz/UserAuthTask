@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserViewController: UIViewController { //, UserDataDelegate {
+class UserViewController: UIViewController {
     
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var fullNameLbl: UILabel!
@@ -21,7 +21,7 @@ class UserViewController: UIViewController { //, UserDataDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // networking.delegate = self
+       
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -30,6 +30,10 @@ class UserViewController: UIViewController { //, UserDataDelegate {
     }
     
     @IBAction func logoutBtnAction(_ sender: Any) {
+    logout()
+    }
+    
+    func logout(){
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: "jsonwebtoken")
         defaults.removeObject(forKey: "refreshtoken")
@@ -48,8 +52,17 @@ class UserViewController: UIViewController { //, UserDataDelegate {
             case .success(let userData): self!.didGetData(userData)
             case.failure(let error):
                 print(error.localizedDescription)
-                guard let alert = self?.alertService.alert(message: "Cannot get user data") else { return }
+                guard let alert = self?.alertService.alert(message: "Session expired please login", handler:  {_ in
+                    CATransaction.setCompletionBlock({
+                        self?.logout()
+                    })
+                })
+                
+                else { return }
                 self?.present(alert, animated: true)
+                
+                //self?.logoutBtnAction((Any).self)
+               // self?.performSegue(withIdentifier: "goBackToLogin", sender: (Any).self)
             }
         }
     }
@@ -64,10 +77,8 @@ class UserViewController: UIViewController { //, UserDataDelegate {
                     self.addressLbl.text = userData.address
                     self.telephoneLbl.text = userData.phone                }
             }
-            
             task.resume()
         }
-        
     }
     
 }
