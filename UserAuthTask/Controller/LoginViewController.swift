@@ -18,13 +18,12 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        password.delegate = self
         // Do any additional setup after loading the view.
     }
     
     @IBAction func submitBtnPressed(_ sender: Any) {
-        guard let username = username.text, let password = password.text else {return}
-        
-        loginRequest(username: username, password: password)
+        password.endEditing(true)
         }
     
     func loginRequest(username: String, password: String) {
@@ -60,5 +59,26 @@ extension UITextField {
             let attributes: [NSAttributedString.Key: UIColor] = [.foregroundColor: newValue]
             self.attributedPlaceholder = NSAttributedString(string: attributedPlaceholder.string, attributes: attributes)
         }
+    }
+}
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        password.endEditing(true)
+        return true
+    }
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if password.text != "" {
+            return true
+        }else {
+           password.placeholder = "Password"
+            return false
+        }
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+         guard let username = self.username.text, let password = self.password.text else {return}
+        loginRequest(username: username, password: password)
+        self.password.text = ""
+        self.username.text = ""
+        
     }
 }
