@@ -60,9 +60,7 @@ class UserViewController: UIViewController {
                 
                 else { return }
                 self?.present(alert, animated: true)
-                
-                //self?.logoutBtnAction((Any).self)
-               // self?.performSegue(withIdentifier: "goBackToLogin", sender: (Any).self)
+
             }
         }
     }
