@@ -39,7 +39,10 @@ class LoginViewController: UIViewController {
                 guard let alert = self?.alertService.alert(message: "Please input correct credentials", handler: { _ in
                     //might do something when alert dismiss
                 }) else { return }
-                self?.present(alert, animated: true)
+                DispatchQueue.main.async {
+                    self?.present(alert, animated: true)
+                }
+                
             }
         }
     }
