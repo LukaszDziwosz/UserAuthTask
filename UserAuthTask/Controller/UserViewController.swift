@@ -14,6 +14,7 @@ class UserViewController: UIViewController {
     @IBOutlet weak var addressLbl: UILabel!
     @IBOutlet weak var telephoneLbl: UILabel!
     @IBOutlet weak var logoutBtnOutlet: UIBarButtonItem!
+    @IBOutlet weak var loadingActivity: UIActivityIndicatorView!
     
     let networking = Networking()
     let alertService = AlertService()
@@ -72,11 +73,12 @@ class UserViewController: UIViewController {
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else { return }
                 
-                DispatchQueue.main.async {
-                    self.userImageView.image = UIImage(data: data)
-                    self.fullNameLbl.text = "\(userData.firstName) \(userData.lastName)"
-                    self.addressLbl.text = userData.address
-                    self.telephoneLbl.text = userData.phone                }
+                DispatchQueue.main.async { [self] in
+                    loadingActivity.stopAnimating()
+                    userImageView.image = UIImage(data: data)
+                    fullNameLbl.text = "\(userData.firstName) \(userData.lastName)"
+                    addressLbl.text = userData.address
+                    telephoneLbl.text = userData.phone                }
             }
             task.resume()
         }

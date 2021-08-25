@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -171,6 +172,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Knl-bo-Cdy">
+                                <rect key="frame" x="167.5" y="313.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="089-9G-0l0"/>
+                                    <constraint firstAttribute="width" constant="40" id="IsG-V1-sGr"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v8P-Ey-7pN"/>
                         <color key="backgroundColor" red="0.20922395590000001" green="0.27230906490000001" blue="0.38439500329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -187,15 +196,18 @@
                             <constraint firstItem="nCN-c3-djh" firstAttribute="trailing" secondItem="v8P-Ey-7pN" secondAttribute="trailing" id="Wud-5e-oQt"/>
                             <constraint firstItem="Y9a-b1-CSu" firstAttribute="leading" secondItem="v8P-Ey-7pN" secondAttribute="leading" id="YMy-43-EMf"/>
                             <constraint firstItem="2BH-sy-RcC" firstAttribute="leading" secondItem="v8P-Ey-7pN" secondAttribute="leading" id="a3F-fT-Hpo"/>
+                            <constraint firstItem="Knl-bo-Cdy" firstAttribute="centerY" secondItem="FGt-dq-97Q" secondAttribute="centerY" id="iW7-6u-Y7i"/>
                             <constraint firstItem="Hqy-IP-LRf" firstAttribute="leading" secondItem="FGt-dq-97Q" secondAttribute="leading" id="kmj-P4-Ukb"/>
                             <constraint firstItem="nCN-c3-djh" firstAttribute="leading" secondItem="v8P-Ey-7pN" secondAttribute="leading" id="t6P-9g-HRp"/>
                             <constraint firstItem="8Xz-h1-Vxa" firstAttribute="leading" secondItem="v8P-Ey-7pN" secondAttribute="leading" id="vgL-e5-wii"/>
+                            <constraint firstItem="Knl-bo-Cdy" firstAttribute="centerX" secondItem="FGt-dq-97Q" secondAttribute="centerX" id="wsZ-Ik-6da"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ld0-z3-if9"/>
                     <connections>
                         <outlet property="addressLbl" destination="Y9a-b1-CSu" id="OyV-gP-r1o"/>
                         <outlet property="fullNameLbl" destination="8Xz-h1-Vxa" id="9rO-3G-bX5"/>
+                        <outlet property="loadingActivity" destination="Knl-bo-Cdy" id="oaW-QW-xA4"/>
                         <outlet property="logoutBtnOutlet" destination="fuv-DW-wKW" id="dWh-kJ-HGJ"/>
                         <outlet property="telephoneLbl" destination="Hqy-IP-LRf" id="P5o-CY-000"/>
                         <outlet property="userImageView" destination="nCN-c3-djh" id="YUm-km-0mO"/>
@@ -204,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kGu-rH-8gs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1163.5514018691588" y="39.524838012958966"/>
+            <point key="canvasLocation" x="1162.4000000000001" y="39.130434782608695"/>
         </scene>
     </scenes>
     <resources>
