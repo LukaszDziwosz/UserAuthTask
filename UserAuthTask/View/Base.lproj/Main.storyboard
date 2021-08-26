@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19158" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19141"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,65 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tech" translatesAutoresizingMaskIntoConstraints="NO" id="JXz-aw-5GK">
-                                <rect key="frame" x="145.5" y="20" width="84" height="84"/>
+                                <rect key="frame" x="147.5" y="20" width="80" height="84"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="84" id="Ftr-91-81g"/>
-                                    <constraint firstAttribute="width" secondItem="JXz-aw-5GK" secondAttribute="height" multiplier="1:1" id="LRS-UI-cMa"/>
+                                    <constraint firstAttribute="height" constant="84" id="2Xh-uY-u5j"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q72-Vx-NKp" customClass="HSUnderLineTextField" customModule="UserAuthTask" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="134" width="375" height="35"/>
-                                <color key="backgroundColor" red="0.2132007182" green="0.27645078299999998" blue="0.38026231529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Vgv-hF-84N"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" textContentType="email"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                        <color key="value" red="0.20524489879999999" green="0.26815968750000002" blue="0.38852238659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
-                                        <color key="value" systemColor="systemBackgroundColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J7p-Az-r5H" customClass="HSUnderLineTextField" customModule="UserAuthTask" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="199" width="375" height="35"/>
-                                <color key="backgroundColor" red="0.2132007182" green="0.27645078299999998" blue="0.38026231529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Mof-CA-QQr"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                        <color key="value" red="0.20524489879999999" green="0.26815968750000002" blue="0.38852238659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
-                                        <color key="value" systemColor="systemBackgroundColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fah-Nn-27x">
                                 <rect key="frame" x="136" y="264" width="103" height="35"/>
                                 <color key="backgroundColor" red="0.074446909130000002" green="0.74863535169999995" blue="0.84176450970000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="a1E-IF-l8h"/>
+                                    <constraint firstAttribute="height" constant="35" id="aSY-Yg-w51"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="19"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
@@ -87,27 +37,57 @@
                                     <action selector="submitBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ofk-j3-QB8"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="95t-0V-cAI">
+                                <rect key="frame" x="0.0" y="144" width="375" height="35"/>
+                                <color key="backgroundColor" red="0.20524489879999999" green="0.26815968750000002" blue="0.38852238659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="AM3-Cp-bqe"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="email"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pg4-KC-rFd">
+                                <rect key="frame" x="0.0" y="204" width="375" height="35"/>
+                                <color key="backgroundColor" red="0.20524489879999999" green="0.26815968750000002" blue="0.38852238659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Z9h-sx-h0C"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.2132007182" green="0.27645078299999998" blue="0.38026231529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="JXz-aw-5GK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="BHU-8J-JCS"/>
-                            <constraint firstItem="Q72-Vx-NKp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Fbb-1x-dou"/>
-                            <constraint firstItem="JXz-aw-5GK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GyX-pU-mAX"/>
-                            <constraint firstItem="Q72-Vx-NKp" firstAttribute="top" secondItem="JXz-aw-5GK" secondAttribute="bottom" constant="30" id="QJT-ow-alo"/>
-                            <constraint firstItem="Fah-Nn-27x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R2c-mZ-EDK"/>
-                            <constraint firstItem="J7p-Az-r5H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fd3-88-149"/>
-                            <constraint firstItem="J7p-Az-r5H" firstAttribute="top" secondItem="Q72-Vx-NKp" secondAttribute="bottom" constant="30" id="hMo-Oz-naU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J7p-Az-r5H" secondAttribute="trailing" id="hc1-OY-Hsq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q72-Vx-NKp" secondAttribute="trailing" id="sz1-hm-3Zl"/>
-                            <constraint firstItem="Fah-Nn-27x" firstAttribute="top" secondItem="J7p-Az-r5H" secondAttribute="bottom" constant="30" id="wKs-RI-QMV"/>
+                            <constraint firstItem="JXz-aw-5GK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="0OD-pU-9aL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pg4-KC-rFd" secondAttribute="trailing" id="1W0-Pn-K03"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="95t-0V-cAI" secondAttribute="trailing" id="4gl-ce-Qe5"/>
+                            <constraint firstItem="JXz-aw-5GK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="M18-LU-QEn"/>
+                            <constraint firstItem="pg4-KC-rFd" firstAttribute="top" secondItem="95t-0V-cAI" secondAttribute="bottom" constant="25" id="cZt-nt-RAp"/>
+                            <constraint firstItem="95t-0V-cAI" firstAttribute="top" secondItem="JXz-aw-5GK" secondAttribute="bottom" constant="40" id="dW0-Dp-s8c"/>
+                            <constraint firstItem="95t-0V-cAI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hg9-88-qeA"/>
+                            <constraint firstItem="Fah-Nn-27x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lNp-iF-0Ha"/>
+                            <constraint firstItem="Fah-Nn-27x" firstAttribute="top" secondItem="pg4-KC-rFd" secondAttribute="bottom" constant="25" id="t4S-hZ-f5O"/>
+                            <constraint firstItem="pg4-KC-rFd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uhx-08-p08"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="logoImageView" destination="JXz-aw-5GK" id="Dgg-Bl-uut"/>
-                        <outlet property="passwordTextField" destination="J7p-Az-r5H" id="yji-v6-LL5"/>
+                        <outlet property="passwordTextField" destination="pg4-KC-rFd" id="teA-4n-s1y"/>
                         <outlet property="submitButton" destination="Fah-Nn-27x" id="pJu-Ky-7n0"/>
-                        <outlet property="usernameTextField" destination="Q72-Vx-NKp" id="Hq5-Oa-WxQ"/>
+                        <outlet property="usernameTextField" destination="95t-0V-cAI" id="FTl-bY-74j"/>
                         <segue destination="V1p-x1-APf" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="6nH-nT-FC2"/>
                     </connections>
                 </viewController>
@@ -221,8 +201,5 @@
     </scenes>
     <resources>
         <image name="tech" width="80" height="80"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
